@@ -1,0 +1,34 @@
+1.1
+1.Analizá el código y respondé:
+(a).¿Cuáles serían las modificaciones necesarias para combinar las funciones replace_bar y re-
+place_dash en una sola función que realice las mismas acciones que ambas? Realizá los ajustes
+necesarios en la definición y en el código según sea necesario.
+(b). ¿Qué significa el modo ‘r’ en la función open()?
+(c). ¿Qué cláusula se ejecutaría si el archivo tuviera un error de formato de csv?¿Qué modificaría
+para indicar la excepción de forma correcta correspondiente a un error de formato de CSV? Realice
+las modificaciones necesarias para que no de error en dicho caso.
+(d). Si en lugar de tener las excepciones manejadas con los nombres específicos, solo tenemos la
+clásusula except: sin los nombres de las excepciones, ¿qué cambia? ¿Cuál es mejor y por qué?
+(e). ¿Qué excepción se captura en la útlima cláusula except?
+
+b_ el modo r en la funcion open significa abrir el archivo en modo lectura. Esto significa que no se podra
+hacer ninguna modificacion dentro del archivo. Si el archivo no existe --> FileNotFoundError.
+
+c_ La clausula que se ejecutaria si el archivo tuviera un error de formato de csv seria:
+
+except Exception as e:
+    print("Ocurrió un error:", e)
+
+- Porque captura cualquier excepción que no haya sido capturada por las cláusulas anteriores. 
+Como 'except Error as e:' no es una excepcion estandar de python nunca se ejecutara.
+
+d_ Tener las excepciones con los nombres específicos nos permite capturar esos errores en especifico. 
+En cambio si tenemos las excepciones con solo la clausa el except, capturara cualquier error que ocurra dentro del bloque try.
+¿Cual es mejor? No hay una mejor o peor, necesitaremos una u otra dependiendo el contexto. 
+Except con nombres específicos:
+- Es una excepcion mas precisa que nos permite especificar un tipo de excepcion especifica. Esto puede llegar a ser util
+para algunos programas que necesitemos realizar distintas acciones dependiendo si se levanta o no la excepcion.
+Except sin nombres especificos:
+- Se usa para capturar cualquier tipo de excepcion sin importar cual sea el error. Poco intuitiva para el usuario.
+
+e_ Se capturara cualquier excepcion que no se haya capturado antes --> Osea cualquier tipo de excepcion de Python:
